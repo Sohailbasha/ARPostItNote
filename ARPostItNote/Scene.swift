@@ -25,7 +25,12 @@ class Scene: SKScene {
         }
         
         if let touchLocation = touches.first?.location(in: sceneView) {
-            // Create anchor with ARSKView
+            // Create anchor with ARSKView with HitTest method
+            if let hit = sceneView.hitTest(touchLocation, types: .featurePoint).first {
+                // Add anchor with ARSKView
+                sceneView.session.add(anchor: ARAnchor(transform: hit.worldTransform))
+                
+            }
         }
     }
 }

@@ -54,12 +54,24 @@ class ViewController: UIViewController, ARSKViewDelegate {
     
     // MARK: - ARSKViewDelegate
     
-    func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
+    /*func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
         // Create and configure a node for the anchor added to the view's session.
         let labelNode = SKLabelNode(text: "👾")
         labelNode.horizontalAlignmentMode = .center
         labelNode.verticalAlignmentMode = .center
         return labelNode;
+    }*/
+    
+    func view(_ view: ARSKView, didAdd node: SKNode, for anchor: ARAnchor) {
+     
+    }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(add)
+        alert.addAction(cancel)
+        
+        present(alert, animated: true, completion: nil)
     }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
