@@ -63,7 +63,17 @@ class ViewController: UIViewController, ARSKViewDelegate {
     }*/
     
     func view(_ view: ARSKView, didAdd node: SKNode, for anchor: ARAnchor) {
-     
+        let alert = UIAlertController(title: "Add Note", message: "", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.placeholder  = "Your Description"
+        }
+        let add = UIAlertAction(title: "Add", style: .default) { (_) in
+            
+            let label = SKLabelNode(text: alert.textFields?.first?.text)
+            label.horizontalAlignmentMode = .center
+            label.verticalAlignmentMode = .center
+            
+            node.addChild(label)
     }
         
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
